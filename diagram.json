@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "author": "SafeSchool Prototype",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 4.7, "left": 4.6, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 35,
+      "left": 144,
+      "attrs": { "color": "red", "label": "DAB" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -103.2,
+      "left": 40.2,
+      "attrs": { "volume": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_merah",
+      "top": -180,
+      "left": 280,
+      "attrs": { "color": "red", "label": "ALARM" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_hijau",
+      "top": -180,
+      "left": 340,
+      "attrs": { "color": "green", "label": "NORMAL" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -120,
+      "left": 280,
+      "attrs": { "resistance": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -120,
+      "left": 340,
+      "attrs": { "resistance": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:D2", "btn1:1.l", "blue", [ "h18.9", "v-87.1" ] ],
+    [ "esp:GND.1", "btn1:2.l", "black", [] ],
+    [ "esp:D4", "bz1:1", "purple", [ "h-115.5", "v-143.9" ] ],
+    [ "esp:GND.2", "bz1:2", "black", [ "h-33.8", "v-168.2" ] ],
+    [ "esp:D12", "r1:1", "orange", [ "h-24.2", "v-244.75" ] ],
+    [ "r1:2", "led_merah:A", "red", [] ],
+    [ "esp:D13", "r2:1", "yellow", [ "h-24.2", "v90.9", "h359.2" ] ],
+    [ "r2:2", "led_hijau:A", "green", [] ],
+    [ "led_merah:C", "led_hijau:C", "black", [] ],
+    [ "led_hijau:C", "esp:GND.3", "black", [] ]
+  ],
+  "dependencies": {}
+}
